@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Ejemplo Acelerometro</title>
+<script type="text/javascript" charset="utf-8" src="js/cordova.js"></script>
+<script type="text/javascript">
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady(){
+  navigator.accelerometer.watchAcceleration(onSuccess, onError, {frequency:3000});
+}
+
+function onSuccess(acelerar){
+  var elemento=document.getElementById("acelerometro");
+  elemento.innerHTML="Acelaración en X:"+acelerar.x+ "<br>Acelaración en Y:"+acelerar.y+
+  "<br>Acelaración en Z:"+acelerar.z+"<br> Timestamp: "+acelerar.timestamp;
+}
+function onError(){
+  alert("Error");
+}
+</script>
+</head>
+<body>
+<div id="acelerometro">Datos del acelerometro...</div>
+</body>
+</html>
